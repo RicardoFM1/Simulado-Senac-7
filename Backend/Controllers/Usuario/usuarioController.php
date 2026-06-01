@@ -42,12 +42,13 @@ class UsuarioController
             }
 
             http_response_code(400);
-            
+
             echo json_encode( [
                 'sucesso' => false,
                 'mensagem' => 'Erro de validação',
                 'erros' => $mensagemTraduzida
             ]);
+            exit;
         }
     }
 

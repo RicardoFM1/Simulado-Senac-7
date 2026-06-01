@@ -55,6 +55,7 @@ class ChamadoController
                 'mensagem' => 'Erro de validação',
                 'erros' => $mensagemTraduzida
             ]);
+            exit;
         }
     }
 

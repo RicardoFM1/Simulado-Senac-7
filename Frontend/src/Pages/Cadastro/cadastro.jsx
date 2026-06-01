@@ -40,6 +40,7 @@ const Cadastro = () => {
             }
         } catch (err) {
             const erros = err.response?.data?.erros
+            console.log(err.response?.data)
 
             if(erros){
                 Object.values(erros).forEach((msg) => {
