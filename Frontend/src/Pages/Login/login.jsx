@@ -48,7 +48,7 @@ const Login = () => {
             if(res.status === 200){
                 toast.success('Usuário logado com sucesso!');
                 localStorage.setItem('token', res.data?.token)
-                navigate('/')
+                navigate('/chamados')
             }
         } catch (err) {
             const erros = err.response?.data?.erros
