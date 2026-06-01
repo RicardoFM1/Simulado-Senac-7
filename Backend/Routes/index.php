@@ -27,7 +27,7 @@ if ($metodo === 'OPTIONS') {
 
 
 if ($rota === '/usuario') {
-   
+
     $controller = new UsuarioController();
 
     if ($metodo === 'GET') {
@@ -73,14 +73,14 @@ if ($rota === '/chamado') {
         $controller->criarChamado();
     }
 
-    if ($metodo === 'PUT' && $_GET['id_usuario']) {
+    if ($metodo === 'PUT' && $_GET['id_chamado']) {
         $controller->atualizarChamado();
     }
 }
 
 if ($rota === '/retrieve') {
     if ($metodo === 'GET') {
-        
+
         http_response_code(200);
         echo json_encode(Middleware::validarMiddleware());
         exit;

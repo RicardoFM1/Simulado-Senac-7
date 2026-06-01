@@ -143,7 +143,7 @@ class ChamadoController
             $jwt = Middleware::validarMiddleware();
             http_response_code(200);
             $dados = json_decode(file_get_contents('php://input'), true);
-            $idUsuario = $_GET['id_usuario'];
+            $idUsuario = $_GET['id_chamado'];
             $this->validarDados($dados);
 
             echo json_encode($this->chamadoService->atualizarChamado($dados, $idUsuario, $jwt));
