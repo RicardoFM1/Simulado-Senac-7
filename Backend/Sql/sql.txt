@@ -49,6 +49,8 @@ CREATE TABLE IF NOT EXISTS `sistema_chamados`.`chamados` (
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
+set time_zone = '-03:00';
+
 
 SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
