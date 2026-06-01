@@ -55,6 +55,10 @@ class UsuarioService {
 
     public function criarUsuario ($usuarioDados) {
         try{
+
+        if(empty($usuarioDados['tipo'])){
+            $usuarioDados['tipo'] = 'comum';
+        }
             $criar = $this->db->prepare('INSERT INTO usuarios (nome, email, senha, tipo)
             VALUES(:nome, :email, :senha, :tipo)');
 

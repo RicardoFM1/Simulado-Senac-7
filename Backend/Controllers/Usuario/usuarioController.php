@@ -41,11 +41,13 @@ class UsuarioController
                 $mensagemTraduzida[$campo] = $mensagemPersonalizada[$campo] ?? $mensagem;
             }
 
-            return [
+            http_response_code(400);
+            
+            echo json_encode( [
                 'sucesso' => false,
                 'mensagem' => 'Erro de validação',
                 'erros' => $mensagemTraduzida
-            ];
+            ]);
         }
     }
 
@@ -77,6 +79,7 @@ class UsuarioController
         try {
             http_response_code(201);
             $dados = json_decode(file_get_contents('php://input'), true);
+            $this->validarDados($dados);
 
             echo json_encode($this->usuarioService->criarUsuario($dados));
             exit;

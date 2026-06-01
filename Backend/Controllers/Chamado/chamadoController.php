@@ -49,11 +49,12 @@ class ChamadoController
                 $mensagemTraduzida[$campo] = $mensagemPersonalizada[$campo] ?? $mensagem;
             }
 
-            return [
+            http_response_code(400);
+            echo json_encode([
                 'sucesso' => false,
                 'mensagem' => 'Erro de validação',
                 'erros' => $mensagemTraduzida
-            ];
+            ]);
         }
     }
 
@@ -119,6 +120,7 @@ class ChamadoController
             $jwt = Middleware::validarMiddleware();
             http_response_code(201);
             $dados = json_decode(file_get_contents('php://input'), true);
+            $this->validarDados($dados);
 
             echo json_encode($this->chamadoService->criarChamado($dados, $jwt));
             exit;
@@ -141,6 +143,7 @@ class ChamadoController
             http_response_code(200);
             $dados = json_decode(file_get_contents('php://input'), true);
             $idUsuario = $_GET['id_usuario'];
+            $this->validarDados($dados);
 
             echo json_encode($this->chamadoService->atualizarChamado($dados, $idUsuario, $jwt));
             exit;
