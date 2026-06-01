@@ -154,12 +154,34 @@ Rota: /usuario, Métodos:
 GET
 <p>
 POST
+<p>
+
+Exemplo de JSON:
+
+```json
+"nome": "Ricardo",
+"email": "Ricardo@gmail.com",
+"senha": "12345678",
+"tipo": "administrador"
+
+```
 
 --- 
 
 Rota: /usuario/login, Métodos:
 <p>
 POST
+<p>
+
+Exemplo de JSON:
+
+```json
+
+"email": "Ricardo@gmail.com",
+"senha": "12345678"
+
+
+```
 
 --- 
 
@@ -172,6 +194,18 @@ POST
 <p>
 PUT
 <p>
+
+Exemplo de JSON:
+
+```json
+"titulo": "Erro na impressora",
+"descricao": "Deu erro na impressão",
+"setor": "RH",
+"prioridade": "média",
+"status": "aberto",
+"usuario_idusuario": "1"
+
+```
 
 É possivel filtrar por status também:
 <p>
