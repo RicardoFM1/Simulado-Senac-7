@@ -4,6 +4,8 @@ import Cadastro from './Pages/Cadastro/cadastro'
 import { ToastContainer } from 'react-toastify'
 import Login from './Pages/Login/login'
 import Home from './Pages/Home/home'
+import Chamados from './Pages/Chamados/chamados'
+import Dashboard from './Pages/Dashboard/dashboard'
 function App() {
   
 
@@ -15,6 +17,9 @@ function App() {
       <Route path='/cadastro' element={<Cadastro/>}/>
       <Route path='/login' element={<Login/>}/>
       <Route path='/' element={<Home/>}/>
+      <Route path='/chamados' element={<Chamados/>}/>
+      <Route path='/dashboard' element={<Dashboard/>}/>
+
 
 
     </Routes>

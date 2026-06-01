@@ -5,7 +5,7 @@ import Api from "../../Services/api";
 
 const Header = () => {
     const navigate = useNavigate()
-    const [admin, setAdmin] = useState(false)
+    const [isAdmin, setIsAdmin] = useState(false)
     const [retrieve, setRetrieve] = useState([])
 
     const buscarRetrieve = async() => {
@@ -15,6 +15,11 @@ const Header = () => {
         if(res.status === 200){
             setRetrieve(res.data?.dados)
             console.log(res.data?.dados)
+            if(res.data?.dados.tipo_usuario === 'administrador'){
+                setIsAdmin(true)
+            }
+            
+
         }
         }catch(err){
             console.log(err)
@@ -23,13 +28,16 @@ const Header = () => {
 
     useEffect(() => {
         buscarRetrieve()
+        
     }, [])
     return (
         
             <Navbar className="bg-primary-subtle d-flex justify-content-between">
                 <Navbar.Brand className="px-3 fs-3">Sistema de chamados</Navbar.Brand>
                 <Stack gap={4} className="mx-4" direction="horizontal">
-                    <Button onClick={() => navigate('/dashboard') }>Dashboard</Button>
+                    {isAdmin && (
+                        <Button onClick={() => navigate('/dashboard') }>Dashboard</Button>
+                    ) }
                     <Button onClick={() => navigate('/chamados')}>Chamados</Button>
                 </Stack>
             </Navbar>

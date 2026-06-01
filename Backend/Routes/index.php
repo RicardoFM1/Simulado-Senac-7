@@ -80,7 +80,7 @@ if ($rota === '/chamado') {
 
 if ($rota === '/retrieve') {
     if ($metodo === 'GET') {
-        echo 'ok';
+        
         http_response_code(200);
         echo json_encode(Middleware::validarMiddleware());
         exit;
