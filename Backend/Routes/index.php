@@ -9,6 +9,7 @@ header('Access-Control-Allow-Headers: Authorization, Content-Type');
 require_once __DIR__ . "/../vendor/autoload.php";
 require_once __DIR__ . "/../Controllers/Usuario/usuarioController.php";
 require_once __DIR__ . "/../Controllers/Chamado/chamadoController.php";
+require_once __DIR__ . "/../Controllers/Dashboard/dashboardController.php";
 
 
 $dotenv = Dotenv::createImmutable(__DIR__ . "/../");
@@ -72,6 +73,23 @@ if ($rota === '/chamado') {
 
     if ($metodo === 'PUT' && $_GET['id_usuario']) {
         $controller->atualizarChamado();
+    }
+}
+
+if ($rota === '/retrieve') {
+    if ($metodo === 'GET') {
+
+        http_response_code(200);
+        json_encode(Middleware::validarMiddleware());
+        exit;
+    }
+}
+
+if ($rota === '/dashboard') {
+    $controller = new DashboardController();
+    if ($metodo === 'GET') {
+
+        $controller->listarDashboard();
     }
 }
 
