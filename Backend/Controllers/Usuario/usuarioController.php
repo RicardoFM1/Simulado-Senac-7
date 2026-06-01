@@ -78,7 +78,7 @@ class UsuarioController
             http_response_code(201);
             $dados = json_decode(file_get_contents('php://input'), true);
 
-            echo json_encode($this->usuarioService->fazerLogin($dados));
+            echo json_encode($this->usuarioService->criarUsuario($dados));
             exit;
         } catch (Exception $e) {
             http_response_code($e->getCode());
@@ -96,7 +96,7 @@ class UsuarioController
             http_response_code(200);
             $dados = json_decode(file_get_contents('php://input'), true);
 
-            echo json_encode($this->usuarioService->criarUsuario($dados));
+            echo json_encode($this->usuarioService->fazerLogin($dados));
             exit;
         } catch (Exception $e) {
             http_response_code($e->getCode());
