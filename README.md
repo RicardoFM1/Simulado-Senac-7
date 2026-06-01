@@ -210,6 +210,7 @@ Exemplo de JSON:
 É possivel filtrar por status também:
 <p>
 /chamado?status=aberto com o Método GET
+<p>
 /chamado?id_usuario&status=aberto com o Método GET.
 
 
