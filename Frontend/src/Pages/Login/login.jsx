@@ -77,7 +77,7 @@ const Login = () => {
                             <Form.Group>
                                 <Form.Label>Email:</Form.Label>
                                 <InputGroup>
-                                    <InputGroup.Text><MdEmail />
+                                    <InputGroup.Text><MdEmail size={25}/>
                                     </InputGroup.Text>
                                     <Form.Control
                                         type="email"
@@ -93,7 +93,7 @@ const Login = () => {
                             <Form.Group>
                                 <Form.Label>Senha:</Form.Label>
                                 <InputGroup>
-                                    <InputGroup.Text><RiLockPasswordFill />
+                                    <InputGroup.Text><RiLockPasswordFill size={25}/>
                                     </InputGroup.Text>
                                     <Form.Control
                                         value={formData.senha}

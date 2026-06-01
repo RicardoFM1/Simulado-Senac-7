@@ -65,7 +65,7 @@ const Cadastro = () => {
                             <Form.Group>
                                 <Form.Label>Nome:</Form.Label>
                                 <InputGroup>
-                                    <InputGroup.Text><FaUser /></InputGroup.Text>
+                                    <InputGroup.Text><FaUser size={25}/></InputGroup.Text>
                                     <Form.Control
                                         value={formData.nome}
                                         onChange={handleChange}
@@ -80,7 +80,7 @@ const Cadastro = () => {
                             <Form.Group>
                                 <Form.Label>Email:</Form.Label>
                                 <InputGroup>
-                                    <InputGroup.Text><MdEmail />
+                                    <InputGroup.Text><MdEmail size={25} />
                                     </InputGroup.Text>
                                     <Form.Control
                                         type="email"
@@ -96,7 +96,7 @@ const Cadastro = () => {
                             <Form.Group>
                                 <Form.Label>Senha:</Form.Label>
                                 <InputGroup>
-                                    <InputGroup.Text><RiLockPasswordFill />
+                                    <InputGroup.Text><RiLockPasswordFill size={25}/>
                                     </InputGroup.Text>
                                     <Form.Control
                                         value={formData.senha}
