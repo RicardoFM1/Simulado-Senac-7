@@ -91,7 +91,7 @@ class ChamadoController
 
     public function listarChamadosUsuarioId()
     {
-     
+        Middleware::validarMiddleware();
         http_response_code(200);
         $idUsuario = $_GET['id_usuario'];
         echo json_encode($this->chamadoService->listarChamadosPorUsuarioId($idUsuario));
@@ -100,7 +100,8 @@ class ChamadoController
 
     public function listarChamadosUsuarioIdEPorStatus()
     {
-     
+        Middleware::validarMiddleware();
+
         http_response_code(200);
         $statusChamado = $_GET['status'];
         $idUsuario = $_GET['id_usuario'];
@@ -113,6 +114,8 @@ class ChamadoController
     public function criarChamado()
     {
         try {
+            Middleware::validarMiddleware();
+
             $jwt = Middleware::validarMiddleware();
             http_response_code(201);
             $dados = json_decode(file_get_contents('php://input'), true);
@@ -132,6 +135,8 @@ class ChamadoController
     public function atualizarChamado()
     {
         try {
+            Middleware::validarMiddleware();
+
             $jwt = Middleware::validarMiddleware();
             http_response_code(200);
             $dados = json_decode(file_get_contents('php://input'), true);
