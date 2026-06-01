@@ -30,6 +30,11 @@ const Header = () => {
         buscarRetrieve()
         
     }, [])
+
+    const handleSair = () => {
+        localStorage.clear()
+        navigate('/login')
+    }
     return (
         
             <Navbar className="bg-primary-subtle d-flex justify-content-between">
@@ -39,6 +44,7 @@ const Header = () => {
                         <Button onClick={() => navigate('/dashboard') }>Dashboard</Button>
                     ) }
                     <Button onClick={() => navigate('/chamados')}>Chamados</Button>
+                     <Button variant="danger" onClick={() => handleSair()}>Sair</Button>
                 </Stack>
             </Navbar>
        
