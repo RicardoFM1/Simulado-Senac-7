@@ -80,7 +80,7 @@ class UsuarioService {
 
     public function fazerLogin($usuarioDados){
         try{
-            echo 'chegou';
+         
         $usuario = $this->buscarUsuarioPorEmail($usuarioDados['email']);
 
         if($usuario['sucesso'] === false){
