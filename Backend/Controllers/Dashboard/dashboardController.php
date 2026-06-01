@@ -27,9 +27,9 @@ class DashboardController {
         echo json_encode([
             'sucesso' => true,
             'dados' => [
-                'chamados_abertos' => $chamadosAbertos,
-                'chamados_em_andamento' => $chamadosEmAndamento,
-                'chamados_resolvidos' => $chamadosResolvidos
+                'chamados_abertos' => $chamadosAbertos ?? 0,
+                'chamados_em_andamento' => $chamadosEmAndamento ?? 0,
+                'chamados_resolvidos' => $chamadosResolvidos ?? 0
             ]
         ]);
         exit;
