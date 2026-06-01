@@ -8,6 +8,8 @@ header('Access-Control-Allow-Headers: Authorization, Content-Type');
 
 require_once __DIR__ . "/../vendor/autoload.php";
 require_once __DIR__ . "/../Controllers/Usuario/usuarioController.php";
+require_once __DIR__ . "/../Controllers/Chamado/chamadoController.php";
+
 
 $dotenv = Dotenv::createImmutable(__DIR__ . "/../");
 $dotenv->load();
@@ -42,6 +44,34 @@ if ($rota === '/usuario/login') {
 
     if ($metodo === 'POST') {
         $controller->fazerLogin();
+    }
+}
+
+if ($rota === '/chamado') {
+    $controller = new ChamadoController();
+
+    if ($metodo === 'GET') {
+        $controller->listarChamados();
+    }
+
+    if ($metodo === 'GET' && $_GET['status']) {
+        $controller->listarChamadosPorStatus();
+    }
+
+    if ($metodo === 'GET' && $_GET['status'] && $_GET['id_usuario']) {
+        $controller->listarChamadosUsuarioIdEPorStatus();
+    }
+
+    if ($metodo === 'GET' && $_GET['id_usuario']) {
+        $controller->listarChamadosUsuarioId();
+    }
+
+    if ($metodo === 'POST') {
+        $controller->criarChamado();
+    }
+
+    if ($metodo === 'PUT' && $_GET['id_usuario']) {
+        $controller->atualizarChamado();
     }
 }
 
