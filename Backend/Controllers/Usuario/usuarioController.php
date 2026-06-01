@@ -18,12 +18,12 @@ class UsuarioController
     public function validarDados($dados)
     {
         try {
-            $tiposPermitidos = ['administrador', 'comum'];
+
 
             $esquema = v::key('nome', v::stringVal()->notEmpty()->length(1, 45))
                 ->key('email', v::email())
-                ->key('senha', v::stringVal()->notEmpty()->length(8, 255))
-                ->key('tipo', v::in($tiposPermitidos));
+                ->key('senha', v::stringVal()->notEmpty()->length(8, 255));
+
 
             $esquema->assert($dados);
         } catch (NestedValidationException $e) {
@@ -31,7 +31,7 @@ class UsuarioController
                 'nome' => 'Nome inválido, min 1, max 45',
                 'email' => 'Email inválido',
                 'senha' => 'Senha inválida, min 8, max 255',
-                'tipo' => 'Tipo fora do escopo: administrador ou comum'
+
             ];
 
             $mensagemOriginal = $e->getMessages();
@@ -43,7 +43,7 @@ class UsuarioController
 
             http_response_code(400);
 
-            echo json_encode( [
+            echo json_encode([
                 'sucesso' => false,
                 'mensagem' => 'Erro de validação',
                 'erros' => $mensagemTraduzida
